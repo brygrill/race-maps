@@ -1,0 +1,34 @@
+{
+  "name": "race-maps",
+  "version": "0.1.0",
+  "private": false,
+  "devDependencies": {
+    "babel-eslint": "^8.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^3.19.0 || ^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-prettier": "^2.4.0",
+    "eslint-plugin-class-property": "^1.0.6",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "prettier": "^1.7.0",
+    "react-addons-test-utils": "^15.6.0",
+    "react-test-renderer": "^16.0.0"
+  },
+  "dependencies": {
+    "@turf/turf": "^4.7.3",
+    "mapbox-gl": "^0.40.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "deploy": "yarn build && now deploy ./build -n go-faster",
+    "pretty": "prettier --single-quote --trailing-comma all --write './src/**/*.js'"
+  }
+}
