@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@turf/turf": "^4.7.3",
+    "firebase": "^4.4.0",
     "mapbox-gl": "^0.40.1",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
