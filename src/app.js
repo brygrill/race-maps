@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
-
-
+import fire from './firebase';
 import bc50k from './data/bc50k.json';
 import bc50kMarkers from './data/bc50kmarkers.json';
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX;
+const me = process.env.REACT_APP_ME;
 
 export default class App extends Component {
-  state = {};
+  state = {
+    loc: null,
+  };
 
   componentDidMount() {
     // Init Map
@@ -31,7 +33,18 @@ export default class App extends Component {
 
     // Load Map
     this.mapOnLoad(map);
+
+    // Get location
+    this.getMyLocation();
   }
+
+  getMyLocation = () => {
+    const loc = fire.database().ref(`users/${me}`);
+    loc.on('value', data => {
+      const locData = data.val();
+      this.setState({ loc: locData });
+    });
+  };
 
   mapOnLoad = map => {
     map.on('load', () => {
@@ -76,6 +89,7 @@ export default class App extends Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <div>
         <div
